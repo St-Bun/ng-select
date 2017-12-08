@@ -265,7 +265,7 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
         if (typeof v === 'undefined' || v === null || v === '') {
             v = [];
         }
-        else if (typeof v === 'string') {
+        else if (typeof v === 'string' || typeof v === 'number') {
             v = [v];
         }
         else if (!Array.isArray(v)) {
