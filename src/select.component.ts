@@ -41,6 +41,7 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
     @Input() placeholder: string = '';
     @Input() filterPlaceholder: string = '';
     @Input() label: string = '';
+    @Input() disableClientFilter: boolean = false;
 
     // Output events.
     @Output() opened = new EventEmitter<null>();
@@ -50,6 +51,7 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
     @Output() focus = new EventEmitter<null>();
     @Output() blur = new EventEmitter<null>();
     @Output() noOptionsFound = new EventEmitter<string>();
+    @Output() inputChanged = new EventEmitter<string>();
 
     @ViewChild('selection') selectionSpan: ElementRef;
     @ViewChild('dropdown') dropdown: SelectDropdownComponent;
