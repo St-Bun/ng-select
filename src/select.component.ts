@@ -161,7 +161,10 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
     }
 
     onFilterInput(term: string) {
-        this.filter(term);
+        if (!this.disableClientFilter) {
+            this.filter(term);
+        }
+        this.inputChanged.emit(term);
     }
 
     onSingleFilterKeydown(event: any) {
@@ -238,6 +241,7 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
             this.updateFilterEnabled();
         }
         if (placeholderChanged) {
+
             this.updateState();
         }
     }

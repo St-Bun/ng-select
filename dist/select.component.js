@@ -117,7 +117,10 @@ var SelectComponent = (function () {
         this._focus();
     };
     SelectComponent.prototype.onFilterInput = function (term) {
-        this.filter(term);
+        if (!this.disableClientFilter) {
+            this.filter(term);
+        }
+        this.inputChanged.emit(term);
     };
     SelectComponent.prototype.onSingleFilterKeydown = function (event) {
         this.handleSingleFilterKeydown(event);
